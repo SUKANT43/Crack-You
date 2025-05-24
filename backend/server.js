@@ -2,6 +2,10 @@ const express=require('express');
 const env=require('dotenv').config();
 const app=express();
 const {pool}=require('./config/db')
+const cors=require('cors');
+app.use(cors());
+app.use(express.json());
+
 
 
 
