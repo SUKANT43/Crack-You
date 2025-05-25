@@ -11,10 +11,10 @@ app.post('/send-test-email', async (req, res) => {
   try {
     const info = await transporter.sendMail({
       from: process.env.EMAIL_USER,          
-      to: 'sukantc005@gmail.com',             
+      to: 'ilakiya319@gmail.com',             
       subject: 'Test Email from Node.js App',
       text: 'Hello! This is a test email sent from the Express app using Nodemailer.',
-    });
+});
 
     console.log('Message sent: %s', info.messageId);
     res.status(200).json({ message: 'Test email sent successfully', messageId: info.messageId });
