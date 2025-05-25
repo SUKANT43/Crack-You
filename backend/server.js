@@ -3,7 +3,7 @@ const env=require('dotenv').config();
 const app=express();
 const connectDb=require('./config/db')
 const cors=require('cors');
-const transporter=require('./config/email');
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 const userRoute=require('./route/auth/user')
