@@ -8,7 +8,6 @@ const createOtp = async (req, res) => {
     if (!email || typeof email !== 'string') {
         return res.status(400).json({ message: 'Invalid email format' });
     }
-
     try {
         const existingUser = await User.findOne({ email });
         if (existingUser) {
