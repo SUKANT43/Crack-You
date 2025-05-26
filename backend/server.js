@@ -6,7 +6,7 @@ const cors=require('cors');
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
-const userRoute=require('./route/auth/user')
+const userRoute=require('./route/auth/userRoute')
 app.use('/api/user',userRoute);
 
 
