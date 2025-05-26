@@ -29,7 +29,6 @@ const createOtp = async (req, res) => {
         }
 
         const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
-
         const newOtp = new UserOtp({
             email,
             otp: otpCode,
