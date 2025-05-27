@@ -7,6 +7,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 const userRoute=require('./route/auth/userRoute')
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+app.use((req,res,next)=>{
+    console.log(`${req.method} request for '${req.url}'`);  
+    next()
+})
 app.use('/api/user',userRoute);
 
 

@@ -1,9 +1,10 @@
 const user=require('../../model/auth/userModel');
-const jwt=reuire('jsonwebtoken');
+const jwt=require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 const login=async(req,res)=>{
-    try{    const{email,password}=req.body;
+    try{    
+        const{email,password}=req.body;
 
     if(!email || !password){
         return res.status(400).json({message:"Please fill all the fields"});
@@ -47,9 +48,10 @@ catch(err){
 
 
 const logout = async (req, res) => {
-  const token = req.cookies.refreshToken;
-  if (!token) return res.sendStatus(204); 
   try {
+      const token = req.cookies.refreshToken;
+  if (!token) return res.sendStatus(204); 
+
     const existingUser = await user.findOne({ refreshToken: token });
     if (existingUser) {
       existingUser.refreshToken = null;
@@ -61,9 +63,11 @@ const logout = async (req, res) => {
           secure: true 
         }).sendStatus(204);
   } catch (err) {
+    console.error(err);
     res.sendStatus(500);
   }
 };
+
 
 module.exports={login, logout};
 
