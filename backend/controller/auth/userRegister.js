@@ -96,6 +96,12 @@ const mailRegisterOtp = async (req, res) => {
 
         await UserOtp.deleteOne({ _id: existingOtp._id });
 
+        await transporter.sendMail({
+            from: process.env.EMAIL_USER,
+            to: email,
+            subject: 'Trade-Hub - User Registration Successful',
+            text: 'You have successfully registered on Trade-Hub.'
+        }); 
         return res.status(201).json({ message: 'User registered successfully' });
 
     } catch (err) {
