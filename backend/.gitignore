@@ -1,2 +1,4 @@
 node_modules
 .env
+agri.session.sql
+.vscode
