@@ -1,8 +1,8 @@
 const user=require('../../model/auth/userModel');
 const jwt=require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-
-const login=async(req,res)=>{
+const asyncHandler = require('express-async-handler');
+const login=asyncHandler(async(req,res)=>{
     try{    
         const{email,password}=req.body;
 
@@ -44,10 +44,10 @@ catch(err){
     console.error(err);
     return res.status(500).json({message:"Internal Server Error"});
     }
-};
+});
 
 
-const logout = async (req, res) => {
+const logout =asyncHandler(async (req, res) => {
   try {
       const token = req.cookies.refreshToken;
   if (!token) return res.sendStatus(204); 
@@ -66,7 +66,7 @@ const logout = async (req, res) => {
     console.error(err);
     res.sendStatus(500);
   }
-};
+});
 
 
 module.exports={login, logout};

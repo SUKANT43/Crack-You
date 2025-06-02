@@ -2,8 +2,8 @@ const User = require('../../model/auth/userModel');
 const UserOtp = require('../../model/auth/userOtpModel');
 const transporter = require('../../config/email');
 const bcrypt = require('bcryptjs');
-
-const createOtp = async (req, res) => {
+const asyncHandler = require('express-async-handler');
+const createOtp = asyncHandler(async (req, res) => {
     const { email } = req.body;
     if (!email || typeof email !== 'string') {
         return res.status(400).json({ message: 'Invalid email format' });
@@ -51,9 +51,9 @@ const createOtp = async (req, res) => {
         console.error(err);
         return res.status(500).json({ message: 'Internal Server Error' });
     }
-};
+});
 
-const mailRegisterOtp = async (req, res) => {
+const mailRegisterOtp = asyncHandler(async (req, res) => {
     try {
         const { email, otpCode, password, name } = req.body;
 
@@ -108,6 +108,6 @@ const mailRegisterOtp = async (req, res) => {
         console.error(err);
         return res.status(500).json({ message: 'Internal Server Error' });
     }
-};
+});
 
 module.exports = { createOtp, mailRegisterOtp };

@@ -2,8 +2,8 @@ const userOtp = require('../../model/auth/userOtpModel');
 const user = require('../../model/auth/userModel');
 const opt = require('../../config/email'); 
 const bcrypt = require('bcryptjs');
-
-const resetPasswordOtp = async (req, res) => {
+const asyncHandler = require('express-async-handler');
+const resetPasswordOtp = asyncHandler(async (req, res) => {
   try {
     const { email } = req.body;
 
@@ -42,10 +42,10 @@ const resetPasswordOtp = async (req, res) => {
     console.error(err);
     return res.status(500).json({ message: "Internal Server Error" });
   }
-};
+});
 
 
-const verifyOtpAndResetPassword = async (req, res) => {
+const verifyOtpAndResetPassword =asyncHandler(async (req, res) => {
   try {
     const { email, otp, newPassword } = req.body;
 
@@ -82,7 +82,7 @@ const verifyOtpAndResetPassword = async (req, res) => {
     console.error(err);
     return res.status(500).json({ message: "Internal Server Error" });
   }
-};
+});
 
 module.exports = {
   resetPasswordOtp,
