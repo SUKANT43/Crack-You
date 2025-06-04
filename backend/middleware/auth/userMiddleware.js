@@ -30,7 +30,7 @@ const checkToken = async (req, res, next) => {
           { expiresIn: '15m' }
         );
 
-        return res.status(200).json({ accessToken: newAccessToken }); // ✅ Return new token
+        return res.status(200).json({ accessToken: newAccessToken }); 
       } catch {
         return res.status(403).json({ message: 'Invalid refresh token' });
       }
