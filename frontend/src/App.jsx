@@ -1,8 +1,11 @@
 import React from 'react'
-
+import Logo from './components/Logo'
+import Navbar from './components/Navbar'
 const App = () => {
   return (
-    <div>Untitled project</div>
+    <div>
+    <Navbar/>
+    </div>
   )
 }
 
