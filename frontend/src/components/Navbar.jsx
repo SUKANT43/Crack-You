@@ -3,12 +3,20 @@ import {FaUser, FaMoon, FaSun} from 'react-icons/fa'
 import { useState } from 'react'
 function Navbar() {
     const [darkMode, setDarkMode] = useState(false);
-
+    const [isOpen,setIsOpen]=useState(false);
+    const [isLogin, setIsLogin] = useState(false);
     function toggleDarkMode() {
         setDarkMode(!darkMode);
      
     }
 
+    function toogleUser(){
+        setIsOpen(!isOpen);
+    }
+
+    function handleLogin(){
+        setIsLogin(!isLogin);
+    }
 
   return (
     <div>
@@ -22,7 +30,10 @@ function Navbar() {
                 <button onClick={toggleDarkMode} className='cursor-pointer'>
                     {darkMode ? <FaSun  className='w-5 h-5'/> : <FaMoon className='w-5 h-5'/>}
                 </button>
-                    <FaUser className='w-5 h-5 cursor-pointer'/>
+                <div className='relative'>
+                    <FaUser className='w-5 h-5 cursor-pointer ' onClick={toogleUser}/>
+                    { isOpen && <p onClick={handleLogin} className='cursor-pointer absolute top-8 right-0 text-black  px-2 py-2  shadow-md rounded '>{isLogin ? "Login" : "Logout"}</p>}
+                </div>
             </div>
             
             
