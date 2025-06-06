@@ -1,10 +1,12 @@
 import React from 'react'
 import Logo from './components/Logo'
 import Navbar from './components/Navbar'
+import UserRegister from './pages/auth/UserRegister'
 const App = () => {
   return (
-    <div>
+    <div className='bg-gray-800 min-h-screen flex flex-col '>
     <Navbar/>
+    <UserRegister/>
     </div>
   )
 }

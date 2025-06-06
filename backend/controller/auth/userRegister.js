@@ -45,7 +45,7 @@ const createOtp = asyncHandler(async (req, res) => {
         await transporter.sendMail(mailOptions);
         await newOtp.save();
 
-        return res.status(200).json({ message: 'OTP sent successfully' });
+        return res.status(200).json({ message: 'OTP sent successfully check your email id' });
 
     } catch (err) {
         console.error(err);

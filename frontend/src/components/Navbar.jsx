@@ -23,7 +23,7 @@ function Navbar() {
         <div className='bg-gray-800 text-white px-4 py-2 flex justify-between items-center'>
             <div className='flex items-center space-x-3'>
             <Logo/>
-            <p  className='text-xs tracking-widest hidden sm:block '>PREP . CRACK . CONQUER</p>
+            <p  className='text-xs tracking-widest hidden sm:block   '>PREP . CRACK . CONQUER</p>
             </div>
             
             <div className='flex items-center space-x-4'>
@@ -32,13 +32,11 @@ function Navbar() {
                 </button>
                 <div className='relative'>
                     <FaUser className='w-5 h-5 cursor-pointer ' onClick={toogleUser}/>
-                    { isOpen && <p onClick={handleLogin} className='cursor-pointer absolute top-8 right-0 text-black  px-2 py-2  shadow-md rounded '>{isLogin ? "Login" : "Logout"}</p>}
+                    { isOpen && <p onClick={handleLogin} className='cursor-pointer absolute top-8 right-0  px-2 py-2  shadow-md rounded text-white'>{isLogin ? "Login" : "Logout"}</p>}
                 </div>
             </div>
-            
-            
-
         </div>
+        <hr className='text-gray-300'/>
     </div>
   )
 }
