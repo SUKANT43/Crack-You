@@ -1,12 +1,11 @@
-import React from 'react'
-import Logo from './components/Logo'
 import Navbar from './components/Navbar'
-import UserRegister from './pages/auth/UserRegister'
+import Sider from './components/Sider'
 const App = () => {
   return (
-    <div className='bg-gray-950 min-h-screen flex flex-col '>
+    <div className='bg-gray-950 min-h-screen flex flex-col text-white'
+    style={{ backgroundColor: '#050505' }}>
     <Navbar/>
-    <UserRegister/>
+    <Sider/>
     </div>
   )
 }
