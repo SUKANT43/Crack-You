@@ -1,5 +1,6 @@
 import React from 'react'
-import logo from '../../src/assets/logo.png'
+
+
 function Logo() {
   return (
     <div className="w-40 h-12  flex items-center px-3 space-x-2  ">
