@@ -4,9 +4,10 @@ const userModel=require('../../models/user/userModel');
 const otpModel=require('../../models/user/userOtpModel')
 
 const userRegisterOtp=async(req,res)=>{
-    const {email}=req.body;
 
     try{
+        const {email}=req.body;
+
         if(!email){
             return res.status(400).json({msg:'Enter all fields'});
         }
@@ -29,19 +30,27 @@ const userRegisterOtp=async(req,res)=>{
 
         const otpCode= Math.floor(100000 + Math.random()*900000);
         
-        const createOtpModel=await otpModel.create({
+        await otpModel.create({
             email:email,
             otp:otpCode
         });
 
 
-        const sendMail=await otp.sendMail({
-            from:process.env.EMAIL,
-            to:email,
-            subject:'Your OTP code regarding register Crack You',
-            html:`<p>Your OTP code is: <b>${otpCode}</b></p><p>This OTP will expire in 10 minutes.</p>`
-        });
+        try {
+            await otp.sendMail({
+                from: process.env.EMAIL,
+                to: email,
+                subject: 'Your OTP code regarding register Crack You',
+                html: `<p>Your OTP code is: <b>${otpCode}</b></p><p>This OTP will expire in 10 minutes.</p>`
+            });
+        } catch (err) {
+            await otpModel.findOneAndDelete({email:email});
+            console.error("Failed to send mail:", err.message);
+            return res.status(500).json({ msg: "Failed to send email" });
+        }
 
+
+        
         return res.status(201).json({msg:'otp sent to your mail'});
 
     }

@@ -6,20 +6,15 @@ const db=require('./config/db');
 const {connection,checkConnection}=require('./config/sql')
 const port=process.env.PORT || 3000;
 
-//router
-const userRegisterRouter=require('./router/user/userRegisterRouter')
-
-
 
 app.use(cors());
 app.use(express.json());
 
-app.use((req,res,next)=>{
-    console.log(req.path);
-    next();
-});
+//router
+const userRegisterRouter=require('./router/user/userRegisterRouter')
 
-app.use('api/register',userRegisterRouter)
+
+app.use('/api/register',userRegisterRouter)
 
 
 
