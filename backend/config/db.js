@@ -4,7 +4,7 @@ function dbConnect(){
     try{
         const connect=mongoose.connect(process.env.MONGO_URL);
         if(connect){
-            console.log("db connected to the server...");
+            console.log("mongo db connected to the server...");
         }
         else{
             console.log("some error occured in db connecting");
