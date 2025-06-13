@@ -16,8 +16,8 @@ function Navbar() {
 
   return (
     <div>
-        <div className=' px-4 py-2 flex justify-between items-center'>
-            <div className='flex items-center space-x-3'>
+        <div className=' px-4 py-2 flex justify-between items-center '>
+            <div className='flex items-center space-x-3 '>
             <Logo/>
             <p  className='text-xs tracking-widest hidden sm:block   '>PREP . CRACK . CONQUER</p>
             </div>
