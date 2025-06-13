@@ -29,7 +29,7 @@ function Login() {
             <input
               type={show ? 'text' : 'password'}
               placeholder="Enter Password"
-              className="bg-[#1E1E1E] border border-gray-700 text-white px-4 py-2 rounded outline-none w-full"
+              className="bg-[#1E1E1E] border border-gray-700 text-white px-4 py-2 rounded outline-none w-full focus:border-orange-400"
             />
             <span
               onClick={showPassword}
