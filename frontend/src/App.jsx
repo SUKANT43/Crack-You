@@ -1,3 +1,6 @@
+
+
+//pages
 import Navbar from './components/Navbar'
 import Sider from './components/Sider'
 import Login from './pages/auth/Login'

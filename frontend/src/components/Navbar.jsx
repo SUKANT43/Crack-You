@@ -3,7 +3,7 @@ import Logo from './Logo';
 
 function Navbar() {
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-[#1E1E1E]">
+    <div className="fixed top-0 left-0 w-full z-50 bg-[#161920]">
       <div className="px-4 py-2 flex justify-between items-center">
         
         <div className="flex items-center space-x-3">
